@@ -1,5 +1,8 @@
 import networkx as nx
 
+COSTOG = 4,32
+
+
 G = nx.DiGraph()
 
 ciudades = [
