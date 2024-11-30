@@ -4,7 +4,7 @@ COSTO_GALON = 4.32 # costo del galón EEUU
 EFICIENCIA = 5.7  # millas por galón
 
 
-G = nx.DiGraph()
+G = nx.Graph()
 
 ciudades = [
     "Los Angeles", 
@@ -34,7 +34,7 @@ rutas = [
     # Los angeles
     ("Los Angeles", "San Diego", {"costo": 90, "tiempo": 2}),
     ("Los Angeles", "Las Vegas", {"costo": 203, "tiempo": 4}),
-    ("Los Angeles", "santa barbara", {"costo": 30, "tiempo": 0.6}),
+    ("Los Angeles", "Santa Barbara", {"costo": 30, "tiempo": 0.6}),
     ("Los Angeles", "Palm Springs", {"costo": 82, "tiempo": 1.5}),
     ("Los Angeles", "Bakersfield", {"costo": 86, "tiempo": 1.6}),
 
@@ -79,4 +79,4 @@ rutas = [
 ]
 
 G.add_edges_from(rutas)
-print(nx.shortest_path(G, "Los Angeles", "San Francisco"))
+print(nx.shortest_path(G, "Los Angeles", "San Francisco", weight="costo"))
