@@ -79,4 +79,5 @@ rutas = [
 ]
 
 G.add_edges_from(rutas)
-print(nx.shortest_path(G, "Los Angeles", "San Francisco", weight="costo"))
+print(nx.shortest_path(G, "San Diego", "Elko", weight="costo"))
+print(nx.is_connected(G))

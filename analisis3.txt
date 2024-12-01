@@ -1,0 +1,18 @@
+Caso 1: Eliminación de Bakersfield
+Al eliminar una ciudad importante, como es el caso de Bakersfield, 
+el grafo dejaría de ser conexo, ya que la ciudad de Fresno quedaría 
+aislada de los demás nodos. Además, el costo de 
+transporte entre las demás ciudades aumentaría, 
+ya que sería necesario utilizar la ruta que conecta Oakland y Palm Springs, 
+lo que incrementaría el costo en 362 dólares en combustible. 
+A su vez, el tiempo de viaje aumentaría en 7 horas y 30 minutos. 
+Esto sin contar que habría que pasar por más ciudades para 
+llegar de un punto a otro, lo cual añadiría aún más costos y tiempo al recorrido.
+
+Caso 2: Eliminación de la ruta entre Bakersfield y Stockton
+Si se eliminara una ruta clave, como la de Bakersfield a Stockton, 
+el grafo no dejaría de ser conexo, ya que aún existiría una conexión 
+entre los demás nodos, utilizando la ruta alternativa entre Palm Springs 
+y Oakland. Sin embargo, al igual que en el caso anterior, el costo
+aumentaría en 362 dólares y el tiempo en 7 horas y 30 minutos,
+ya que esta sería la única ruta disponible para conectar todas las ciudades.
