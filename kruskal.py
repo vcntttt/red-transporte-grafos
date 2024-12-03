@@ -43,10 +43,10 @@ posicionNodos = nx.spring_layout(G, seed=5)
 plt.figure(figsize=(12,8))
 nx.draw_networkx_nodes(G, posicionNodos, node_color="orange", node_size=1000)
 nx.draw_networkx_labels(G, posicionNodos, font_weight="bold", font_size=7)
-#etiquetasAristas = {(u, v): f"${d['costo']}" for u, v, d in G.edges(data=True)}
+etiquetasAristas = {(u, v): f"${d['costo']}" for u, v, d in G.edges(data=True)}
 
 nx.draw_networkx_edges(G, posicionNodos, edgelist=mst, edge_color="green", width=2.5)
 
-#nx.draw_networkx_edge_labels(G, posicionNodos, edge_labels=etiquetasAristas, font_color="green", font_size=8)
+nx.draw_networkx_edge_labels(G, posicionNodos, edge_labels=etiquetasAristas, font_color="green", font_size=8)
 
 plt.show()

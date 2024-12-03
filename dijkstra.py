@@ -32,7 +32,7 @@ def dijkstra(g, nodoInicio):
     
     return nodosPrevios, caminoCorto, tiempoCorto
 
-nodoInicial = "Los Angeles"
+nodoInicial = "Sacramento"
 
 nodosPrevios, distancias, tiempos = dijkstra(G, nodoInicial)
 posicionNodos = nx.spring_layout(G, seed=5)
@@ -51,4 +51,5 @@ for nodo in G.nodes():
     tiempo = tiempos.get(nodo, "∞")
     plt.text(posicionNodos[nodo][0], posicionNodos[nodo][1] + 0.05, s=f"{distancia} (mi) {tiempo:.1f} (h)", bbox=dict(facecolor="yellow", alpha=0.5), horizontalalignment="center", fontsize=8)
 
+plt.title(f"Camino más corto con inicio en {nodoInicial}")
 plt.show()

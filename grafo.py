@@ -49,7 +49,7 @@ rutas = [
     # Bakersfield
     ("Bakersfield", "Riverside", {"costo": 125, "tiempo": 2.5}),
     ("Bakersfield", "Fresno", {"costo": 82, "tiempo": 1.5}),
-    ("Bakersfield", "Stockton", {"costo": 177, "tiempo": 3.5}),
+    #("Bakersfield", "Stockton", {"costo": 177, "tiempo": 3.5}),
 
     # Stockton
     ("Stockton", "Modesto", {"costo": 21, "tiempo": 0.5}),
@@ -82,16 +82,16 @@ rutas = [
 
 G.add_edges_from(rutas)
 
-# plt.figure(figsize=(12, 8))  # Ajustar tamaño del gráfico
-# pos = nx.spring_layout(G)  # Elegir un layout para los nodos (opciones: spring, circular, random, etc.)
-# nx.draw(
-#     G, pos, with_labels=True, node_size=500, node_color="lightblue", font_size=10, font_weight="bold"
-# )
+plt.figure(figsize=(12, 8))  # Ajustar tamaño del gráfico
+pos = nx.spring_layout(G, seed=7)  # Elegir un layout para los nodos (opciones: spring, circular, random, etc.)
+nx.draw_networkx_nodes(G, pos, node_color="orange", node_size=500)
+nx.draw_networkx_labels(G, pos, font_weight="bold", font_size=7)
 
 # # Opcional: Añadir etiquetas con pesos de las aristas
-# edge_labels = {(u, v): f"{d['costo']} / {d['tiempo']}" for u, v, d in G.edges(data=True)}
-# nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
+edge_labels = {(u, v): f"{d['costo']} / {d['tiempo']}" for u, v, d in G.edges(data=True)}
+nx.draw_networkx_edges(G, pos, edgelist=G.edges, edge_color="green", width=2.5)
+nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
 
 # # Mostrar el gráfico
-# plt.title("Mapa de ciudades y rutas", fontsize=14)
-# plt.show()
+plt.title("Mapa de ciudades y rutas", fontsize=14)
+plt.show()
