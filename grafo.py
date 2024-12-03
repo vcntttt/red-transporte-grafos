@@ -81,19 +81,17 @@ rutas = [
 ]
 
 G.add_edges_from(rutas)
-# print(nx.shortest_path(G, "San Diego", "Elko", weight="costo"))
-# print(nx.is_connected(G))
 
-plt.figure(figsize=(12, 8))  # Ajustar tamaño del gráfico
-pos = nx.spring_layout(G)  # Elegir un layout para los nodos (opciones: spring, circular, random, etc.)
-nx.draw(
-    G, pos, with_labels=True, node_size=500, node_color="lightblue", font_size=10, font_weight="bold"
-)
+# plt.figure(figsize=(12, 8))  # Ajustar tamaño del gráfico
+# pos = nx.spring_layout(G)  # Elegir un layout para los nodos (opciones: spring, circular, random, etc.)
+# nx.draw(
+#     G, pos, with_labels=True, node_size=500, node_color="lightblue", font_size=10, font_weight="bold"
+# )
 
-# Opcional: Añadir etiquetas con pesos de las aristas
-edge_labels = {(u, v): f"{d['costo']} / {d['tiempo']}" for u, v, d in G.edges(data=True)}
-nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
+# # Opcional: Añadir etiquetas con pesos de las aristas
+# edge_labels = {(u, v): f"{d['costo']} / {d['tiempo']}" for u, v, d in G.edges(data=True)}
+# nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
 
-# Mostrar el gráfico
-plt.title("Mapa de ciudades y rutas", fontsize=14)
-plt.show()
+# # Mostrar el gráfico
+# plt.title("Mapa de ciudades y rutas", fontsize=14)
+# plt.show()
