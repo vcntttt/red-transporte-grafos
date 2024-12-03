@@ -28,6 +28,20 @@ def dijkstra(g, nodoInicio):
     
     return nodosPrevios, caminoCorto
 
-nodo = "Los Angeles"
+nodoInicial = "Los Angeles"
 
-nodosPrevios, distancias = dijkstra(G, nodo)
+nodosPrevios, distancias = dijkstra(G, nodoInicial)
+posicionNodos = nx.spring_layout(G, seed=5)
+plt.figure(figsize=(12,8))
+nx.draw(G, posicionNodos, with_labels=True, node_color="lightblue", font_weight="bold", node_size=1500, font_size=10)
+etiquetasAristas = {(u, v): f"${d['costo']}" for u, v, d in G.edges(data=True)}
+
+for nodo, nodoPrevio in nodosPrevios.items():
+    nx.draw_networkx_edges(G, posicionNodos, edgelist=[(nodoPrevio, nodo)], edge_color="red", width=2.5)
+
+nx.draw_networkx_edge_labels(G, posicionNodos, edge_labels=etiquetasAristas, font_color="green", font_size=8)
+
+for nodo, distancia in distancias.items():
+    plt.text(posicionNodos[nodo][0], posicionNodos[nodo][1] + 0.05, s=f"{distancia} (mi)", bbox=dict(facecolor="yellow", alpha=0.5), horizontalalignment="center", fontsize=8,)
+
+plt.show()
