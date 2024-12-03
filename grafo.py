@@ -1,8 +1,8 @@
 import networkx as nx
+import matplotlib.pyplot as plt
 
 COSTO_GALON = 4.32  # costo del galón EEUU
 EFICIENCIA = 5.7  # millas por galón
-
 
 G = nx.Graph()
 
@@ -30,6 +30,8 @@ ciudades = [
 ]
 G.add_nodes_from(ciudades)
 
+# costos: dolares
+# tiempo: horas
 rutas = [
     # Los Angeles
     ("Los Angeles", "San Diego", {"costo": 90, "tiempo": 2}),
@@ -82,3 +84,16 @@ G.add_edges_from(rutas)
 # print(nx.shortest_path(G, "San Diego", "Elko", weight="costo"))
 # print(nx.is_connected(G))
 
+plt.figure(figsize=(12, 8))  # Ajustar tamaño del gráfico
+pos = nx.spring_layout(G)  # Elegir un layout para los nodos (opciones: spring, circular, random, etc.)
+nx.draw(
+    G, pos, with_labels=True, node_size=500, node_color="lightblue", font_size=10, font_weight="bold"
+)
+
+# Opcional: Añadir etiquetas con pesos de las aristas
+edge_labels = {(u, v): f"{d['costo']} / {d['tiempo']}" for u, v, d in G.edges(data=True)}
+nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
+
+# Mostrar el gráfico
+plt.title("Mapa de ciudades y rutas", fontsize=14)
+plt.show()

@@ -16,6 +16,6 @@ nx.draw(
     G, layout, with_labels=True, node_size=800, node_color="lightblue"
 )
 
-edge_labels = {(u, v): f"{d['peso']:.2f}" for u, v, d in G.edges(data=True)}
-nx.draw_networkx_edge_labels(G, layout, edge_labels=edge_labels)
+labels = {(u, v): f"{d['peso']:.2f}" for u, v, d in G.edges(data=True)}
+nx.draw_networkx_edge_labels(G, layout, edge_labels=labels)
 plt.show()
